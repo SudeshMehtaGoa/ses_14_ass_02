@@ -21,9 +21,10 @@ export class StudentListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._student_Service.getStudentList().subscribe((response)=>{this.StudentsArray=response});
-    console.log("list service");
-    console.log(this.StudentsArray);
+    this._student_Service.getStudentList().subscribe((response) => {
+      this.StudentsArray = response
+    });
+
   }
 
 }

@@ -24,22 +24,17 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this._student_Service.getStudentList().subscribe((response) => { this.StudentsArray = response });
-
-    this.sub = this.route.params.subscribe(params => {
-      this.studentName = params['studentName'];
-
-      console.log(this.StudentsArray);
-      console.log(this.studentName);
-      for (var i = 0; i < this.StudentsArray.length; i++) {
-        if (this.studentName == this.StudentsArray[i].studentName) {
-          this.StudentDetail = this.StudentsArray[i];
+    this._student_Service.getStudentList().subscribe((response) => {
+      this.StudentsArray = response
+      this.sub = this.route.params.subscribe(params => {
+        this.studentName = params['studentName'];
+        for (var i = 0; i < this.StudentsArray.length; i++) {
+          if (this.studentName == this.StudentsArray[i].studentName) {
+            this.StudentDetail = this.StudentsArray[i];
+          }
         }
-      }
-
-
+      });
     });
-
   }
 
   ngOnDestroy() {

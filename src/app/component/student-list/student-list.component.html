@@ -16,7 +16,7 @@
           <tbody>
             <tr *ngFor="let student of StudentsArray |searchStudent:term">
               <!-- [routerLink]="['/studentDetail',student.studentName]  -->
-              <td>
+              <td [routerLink]="['/studentDetail',student.studentName]" >
                 {{student.studentName}}
               </td>
               <td>
